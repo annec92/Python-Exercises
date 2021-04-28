@@ -1,0 +1,35 @@
+'''Given a dictionary of words and a string made up of those words (no spaces) return the original sentence in a list.
+For example, given the set of words "quick" "brown" "the" "fox" and the string "thequickbrownfox" you should return ["the", "quick", "brown", "fox"]'''
+
+list1 = ["quick", "brown", "the", "fox"]
+string1 = "thequickbrownfox"
+
+index1 = 0
+len1 = 0
+len_string = len(string1)
+index_out = 0
+string_seg = ""
+dict1 = {}
+for word1 in list1:
+    index1 = 0
+    len1 = len(word1)
+    while index1 < len_string:
+        index_out = index1 + len1
+        
+        string_seg = string1[index1:index_out]
+        if(word1 == string_seg):
+            break
+        index1 += 1
+        
+    if index1 < len_string: 
+        dict1[index1] = word1 
+
+        
+list1 = sorted(dict1.keys())
+
+list2 = []
+
+for index2 in list1:
+    list2.append(dict1[index2])
+
+print("The result list is ", list2)
